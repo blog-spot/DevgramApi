@@ -13,6 +13,12 @@ app.get("/", (req:Request, res:Response):void => {
 
 
 app.get("/api", (req:Request , res: Response):void => {
+  fs.readFile('C:\\DevgramApi\\views\\test.json' , 'utf8' , (err , data ) => {
+    if(err){
+      throw err;
+    }
+    res.send(JSON.parse(data));
+  })
 
 
 })

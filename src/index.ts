@@ -11,6 +11,7 @@ app.get("/", (req:Request, res:Response):void => {
   });
 
 // setting up ports
+// void is used here as thr is no type for the port to listen to.
   app.listen(PORT, ():void => {
     console.log(`Server Running here 👉 https://localhost:${PORT}`);
   });

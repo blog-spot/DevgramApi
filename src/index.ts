@@ -11,7 +11,7 @@ app.get("/", (req:Request, res:Response):void => {
     res.send("Hello Typescript with Node.js!")
   });
 
-
+// basic api 
 app.get("/api", (req:Request , res: Response):void => {
   fs.readFile('./views/test.json' , 'utf8' , (err , data ) => {
     if(err){

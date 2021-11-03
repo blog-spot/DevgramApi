@@ -4,6 +4,7 @@ import * as fs from 'fs';
 var { graphqlHTTP } = require('express-graphql');
 var { buildSchema } = require('graphql');
 var bodyparser = require('body-parser');
+// using node fetch
 
 const app:Application = express();
 const PORT = process.env.PORT || 3000;
@@ -17,8 +18,10 @@ app.get("/", (req:Request, res:Response):void => {
   function defineSchema(){
     var schema = buildSchema(`
     type mainQuery {
-      Quote: [String!]!
-      Author: [String!]!
+    
+      Quote: [String!]! 
+      Author: [String!]! 
+     
   
     }
 
@@ -73,24 +76,23 @@ app.use("/graphql" ,graphqlHTTP({
   });
 
 
-
+// api quote fr the main page
 
 function getQuote(){
   return [
 
 
-    "A tale of two cicties",
-    "in the chest of a womam",
-    "things fall apart"
+    "Except our own thoughts, there is nothing absolutely in our power.",
+    "Parents wonder why the streams are bitter, when they themselves poison the fountain.",
+    "I count him braver who overcomes his desires than him who conquers his enemies, for the hardest victory is over self."
 
   ];
 }
 
 function getsource(){
   return [
-    'alexender bell',
-    'udhay rajjev',
-    'dummy users'
-
+    'René Descartes',
+    'John Locke',
+    'Aristotle',
   ]
 }

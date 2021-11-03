@@ -7,17 +7,21 @@ var { buildSchema } = require('graphql');
 
 // building test buildSchema
 
+// Construct a schema, using GraphQL schema language
 var schema = buildSchema(`
   type Query {
     hello: String
-  },
-  type Query{
-    test: fastify
   }
- 
 `);
-var root = { hello: () => 'Hello world!' };
 
+
+
+// The root provides a resolver function for each API endpoint
+var root = {
+  hello: () => {
+    return 'working';
+  },
+};
 
 const app:Application = express();
 const PORT = process.env.PORT || 3000;

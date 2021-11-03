@@ -5,7 +5,7 @@ var { graphqlHTTP } = require('express-graphql');
 var { buildSchema } = require('graphql');
 var bodyparser = require('body-parser');
 // using node fetch
-
+import fetch from 'node-fetch';
 const app:Application = express();
 const PORT = process.env.PORT || 3000;
 
@@ -67,6 +67,14 @@ app.use("/graphql" ,graphqlHTTP({
 
 // })
 // )
+
+
+// the pilosopy api is available
+
+app.get('/api-graphql' , (req:Request, res:Response) => {
+  fetch('')
+})
+
 
 
 // setting up ports

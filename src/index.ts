@@ -17,12 +17,16 @@ app.get("/", (req:Request, res:Response):void => {
   function defineSchema(){
     var schema = buildSchema(`
     type mainQuery {
-      library: [String!]!
+      Quote: [String!]!
+      Author: [String!]!
   
     }
+
     type Mainmutation {
       recordBook(title: String): String
     }
+
+   
   
     schema{
       query: mainQuery
@@ -34,16 +38,32 @@ app.get("/", (req:Request, res:Response):void => {
   
   }
 
+
+
+
+
 app.use("/graphql" ,graphqlHTTP({
   // Specifiing all the options here.
   schema:defineSchema(),
   rootValue: {
-    library: getLibrary()
+    Author: getsource(),
+    Quote: getQuote()
   },
   graphiql: true
 
 })
 );
+
+
+// app.use('/test' , graphqlHTTP({
+//   schema:secondSchema(),
+//   rootValue: {
+//     author: getsource()
+//   },
+//   graphiql: true
+
+// })
+// )
 
 
 // setting up ports
@@ -55,7 +75,7 @@ app.use("/graphql" ,graphqlHTTP({
 
 
 
-function getLibrary(){
+function getQuote(){
   return [
 
 
@@ -64,4 +84,13 @@ function getLibrary(){
     "things fall apart"
 
   ];
+}
+
+function getsource(){
+  return [
+    'alexender bell',
+    'udhay rajjev',
+    'dummy users'
+
+  ]
 }

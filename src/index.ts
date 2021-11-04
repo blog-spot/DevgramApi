@@ -20,15 +20,21 @@ app.get("/", (req:Request, res:Response):void => {
   function defineSchema(){
     var schema = buildSchema(`
     type mainQuery {
-      Quote: [String!]! 
-      Author: [String!]! 
+      Quote: [name]! 
+      Author: [String!]!
      
   
+    }
+
+    
+    type name{
+      title: String!
     }
 
     type Mainmutation {
       recordBook(title: String): String
     }
+
 
    
   
@@ -37,6 +43,7 @@ app.get("/", (req:Request, res:Response):void => {
       mutation: Mainmutation
     }
     `);
+
   
     return schema;
   
@@ -51,7 +58,7 @@ app.use("/graphql" ,graphqlHTTP({
   schema:defineSchema(),
   rootValue: {
     Author: getsource(),
-    Quote: getQuote()
+    Quote: getQuote(),
   },
   graphiql: true
 
@@ -99,5 +106,11 @@ function getsource(){
     'René Descartes',
     'John Locke',
     'Aristotle',
+  ]
+}
+
+function getname(){
+  return[
+    'testing user dummy'
   ]
 }

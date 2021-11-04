@@ -7,6 +7,10 @@ var bodyparser = require('body-parser');
 const app:Application = express();
 const PORT = process.env.PORT || 3000;
 
+
+
+
+
 app.use(express.json());
 
 // main routes
@@ -67,17 +71,13 @@ app.use("/graphql" ,graphqlHTTP({
 
 
 // the pilosopy api is available
+// fetching id from the api endpoint
 
-
-app.get('/test-route' ,(req:Request, res:Response) => {
-
-
-})
 
 // setting up ports
 // void is used here as thr is no type for the port to listen to.
   app.listen(PORT, ():void => {
-    console.log(`Server Running here 👉 https://localhost:${PORT}`);
+    console.log(`Server Running here ⚡  https://localhost:${PORT}`);
   });
 
 

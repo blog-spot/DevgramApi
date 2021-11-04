@@ -4,8 +4,6 @@ import * as fs from 'fs';
 var { graphqlHTTP } = require('express-graphql');
 var { buildSchema } = require('graphql');
 var bodyparser = require('body-parser');
-// using node fetch
-import fetch from 'node-fetch';
 const app:Application = express();
 const PORT = process.env.PORT || 3000;
 
@@ -18,7 +16,6 @@ app.get("/", (req:Request, res:Response):void => {
   function defineSchema(){
     var schema = buildSchema(`
     type mainQuery {
-    
       Quote: [String!]! 
       Author: [String!]! 
      
@@ -71,11 +68,11 @@ app.use("/graphql" ,graphqlHTTP({
 
 // the pilosopy api is available
 
-app.get('/api-graphql' , (req:Request, res:Response) => {
-  fetch('')
+
+app.get('/test-route' ,(req:Request, res:Response) => {
+
+
 })
-
-
 
 // setting up ports
 // void is used here as thr is no type for the port to listen to.

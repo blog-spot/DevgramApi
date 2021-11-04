@@ -20,16 +20,18 @@ app.get("/", (req:Request, res:Response):void => {
   function defineSchema(){
     var schema = buildSchema(`
     type mainQuery {
-      Quote: [name]! 
-      Author: [String!]!
-     
+      Quote: [String!]
+      quoteName: [name!]
+      Author: [String!]!     
+      name: [name!]
   
     }
 
     
     type name{
-      title: String!
+      title: String
     }
+
 
     type Mainmutation {
       recordBook(title: String): String
@@ -57,8 +59,10 @@ app.use("/graphql" ,graphqlHTTP({
   // Specifiing all the options here.
   schema:defineSchema(),
   rootValue: {
+    mainQuery:( getsource(), getQuote()),
     Author: getsource(),
     Quote: getQuote(),
+    name: getname(),
   },
   graphiql: true
 

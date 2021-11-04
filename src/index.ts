@@ -21,16 +21,19 @@ app.get("/", (req:Request, res:Response):void => {
     var schema = buildSchema(`
     type mainQuery {
       Quote: [String!]
-      quoteName: [name!]
       Author: [String!]!     
-      name: [name!]
+      name: [Authornames!]
   
     }
 
+
+
     
-    type name{
+    type Authornames{
       title: String
-    }
+
+
+ }
 
 
     type Mainmutation {
@@ -46,7 +49,7 @@ app.get("/", (req:Request, res:Response):void => {
     }
     `);
 
-  
+  const test = { title: 'harry potter'  }
     return schema;
   
   }
@@ -115,6 +118,6 @@ function getsource(){
 
 function getname(){
   return[
-    'testing user dummy'
+    {title: 'test.'}
   ]
 }

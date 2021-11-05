@@ -1,11 +1,13 @@
 // setting up express
 import express, {Request,Response,Application} from 'express';
 import * as fs from 'fs';
-var bodyparser = require('body-parser');
+var bodyParser = require('body-parser');
 const app:Application = express();
 const PORT = process.env.PORT || 3000;
 
 
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 app.use(express.json());
 
 
@@ -14,18 +16,15 @@ app.get ("/",  (req:Request, res:Response) => {
     
 
 });
-
-app.get('/api/v1', (req:Request, res:Response):void => {
-  fs.readFile('../apiFiles/main.json' , 'utf8', (err, data) => {
+app.get("/api", (req:Request , res: Response):void => {
+  fs.readFile('./views/test.json' , 'utf8' , (err , data ) => {
     if(err){
       throw err;
     }
-    res.send(JSON.stringify(data));
+    res.send(JSON.parse(data));
   })
+
 })
-
-
-
 
 
 
@@ -38,4 +37,4 @@ app.get('/api/v1', (req:Request, res:Response):void => {
 // void is used here as thr is no type for the port to listen to.
   app.listen(PORT, ():void => {
     console.log(`Server Running here ⚡  https://localhost:${PORT}`);
-  });
+  })

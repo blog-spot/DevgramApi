@@ -20,7 +20,7 @@ app.get("/", (req:Request, res:Response):void => {
   function defineSchema(){
     var schema = buildSchema(`
     type mainQuery {
-      Quote: [String!]
+      Quotes: [String!]
       Author: [String!]!     
       nameQuote1: [Authornames!]
   
@@ -31,8 +31,10 @@ app.get("/", (req:Request, res:Response):void => {
     
     type Authornames{
       title1: String
-      
+      source1: String
  }
+
+
 
     
 
@@ -63,7 +65,7 @@ app.use("/graphql" ,graphqlHTTP({
   rootValue: {
     mainQuery:( getsource(), getQuote()),
     Author: getsource(),
-    Quote: getQuote(),
+    Quotes: getQuote(),
     nameQuote1: getname(),
   },
   graphiql: true
@@ -100,7 +102,7 @@ function getQuote(){
   return [
 
 
-    "Except our own thoughts, there is nothing absolutely in our power.",
+    "Except our own thoughts, there is nothing absolutely in our power. ",
     "Parents wonder why the streams are bitter, when they themselves poison the fountain.",
     "I count him braver who overcomes his desires than him who conquers his enemies, for the hardest victory is over self."
 
@@ -117,7 +119,9 @@ function getsource(){
 
 function getname(){
   return[
-   {title1: 'Except our own thoughts, there is nothing absolutely in our power ~ René Descartes'}   
+   {title1: 'Except our own thoughts, there is nothing absolutely in our power ~ René Descartes'}  ,
  
   ]
 }
+
+

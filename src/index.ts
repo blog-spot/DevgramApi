@@ -4,9 +4,9 @@ import * as fs from 'fs';
 var { graphqlHTTP } = require('express-graphql');
 var { buildSchema } = require('graphql');
 var bodyparser = require('body-parser');
+
 const app:Application = express();
 const PORT = process.env.PORT || 3000;
-
 
 
 
@@ -25,7 +25,18 @@ app.get("/", (req:Request, res:Response):void => {
       Quotes1: [Authornames!]
       Quotes2: [quoting2!]
       Quotes3: [quoting3!]
+      getAuthors: [getQuotesAuthor]
   
+    }
+
+
+    type getQuotesAuthor{
+      Authors: String,
+\
+    }
+
+    type getSource{
+      sourceName: String
     }
 
 
@@ -33,7 +44,6 @@ app.get("/", (req:Request, res:Response):void => {
     
     type Authornames{
       title1: String
-      source1: String
  }
     type quoting2 {
       title2: String
@@ -77,7 +87,8 @@ app.use("/graphql" ,graphqlHTTP({
     Quotes: getQuote(),
     Quotes1: getname(),
     Quotes2: getQuotes2(),
-    Quotes3: getQuotes3()
+    Quotes3: getQuotes3(),
+    getAuthors: getQuoteing(),
   },
   graphiql: true
 
@@ -148,3 +159,10 @@ function getQuotes3(){
     {title3: 'I count him braver who overcomes his desires than him who conquers his enemies, for the hardest victory is over self.'}
   ]
 }
+
+function getQuoteing(){
+  return[
+    {Authors:'René Descartes'}
+  ]
+}
+

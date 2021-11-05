@@ -4,7 +4,7 @@ import * as fs from 'fs';
 var { graphqlHTTP } = require('express-graphql');
 var { buildSchema } = require('graphql');
 var bodyparser = require('body-parser');
-
+const axios = require('axios').default;
 const app:Application = express();
 const PORT = process.env.PORT || 3000;
 
@@ -17,6 +17,16 @@ app.use(express.json());
 app.get("/", (req:Request, res:Response):void => {
     res.send("Hello Typescript with Node.js!")
   });
+
+app.get('/test' , (req:Request, res:Response)  => {
+  axios.get('hrrps://github.com/')
+  .then(function (response:Response) {
+    console.log(response);
+  });
+
+
+
+});
   function defineSchema(){
     var schema = buildSchema(`
     type mainQuery {
@@ -94,6 +104,7 @@ app.use("/graphql" ,graphqlHTTP({
 
 })
 );
+
 
 
 // app.use('/test' , graphqlHTTP({

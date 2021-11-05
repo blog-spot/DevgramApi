@@ -16,7 +16,7 @@ app.get ("/",  (req:Request, res:Response) => {
 });
 
 app.get('/api/v1', (req:Request, res:Response):void => {
-  fs.readFile('./apiFiles/main.json' , 'utf8', (err, data) => {
+  fs.readFile('../apiFiles/main.json' , 'utf8', (err, data) => {
     if(err){
       throw err;
     }

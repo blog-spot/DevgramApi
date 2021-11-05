@@ -49,7 +49,6 @@ app.get("/", (req:Request, res:Response):void => {
     }
     `);
 
-  const test = { title: 'harry potter'  }
     return schema;
   
   }
@@ -65,7 +64,7 @@ app.use("/graphql" ,graphqlHTTP({
     mainQuery:( getsource(), getQuote()),
     Author: getsource(),
     Quote: getQuote(),
-    name: getname(),
+    NameQuote: getname(),
   },
   graphiql: true
 

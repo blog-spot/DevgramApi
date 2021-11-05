@@ -16,8 +16,8 @@ app.get ("/",  (req:Request, res:Response) => {
     
 
 });
-app.get("/api", (req:Request , res: Response):void => {
-  fs.readFile('./views/test.json' , 'utf8' , (err , data ) => {
+app.get("/api/v1/main", (req:Request , res: Response):void => {
+  fs.readFile('./api/test.json' , 'utf8' , (err , data ) => {
     if(err){
       throw err;
     }
@@ -26,6 +26,16 @@ app.get("/api", (req:Request , res: Response):void => {
 
 })
 
+
+app.get("/api/v1/mainQuotes", (req:Request , res: Response):void => {
+  fs.readFile('./api/mainQuotes.json' , 'utf8' , (err , data ) => {
+    if(err){
+      throw err;
+    }
+    res.send(JSON.parse(data));
+  })
+
+})
 
 
 

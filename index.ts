@@ -24,7 +24,7 @@ app.get("/api/v1/main", (req:Request , res: Response):void => {
   })
 
 })
-
+// setting up in deployment
 
 app.get("/api/v1/mainQuotes", (req:Request , res: Response):void => {
   fs.readFile('./api/mainQuotes.json' , 'utf8' , (err , data ) => {

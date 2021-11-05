@@ -155,20 +155,22 @@ function getname(){
 
 function getQuotes2(){
   return[
-    {title2:'Parents wonder why the streams are bitter, when they themselves poison the fountain'},
+    {title2:'Parents wonder why the streams are bitter, when they themselves poison the fountain ~Jhon Locke'},
 
   ]
 }
 
 function getQuotes3(){
   return[
-    {title3: 'I count him braver who overcomes his desires than him who conquers his enemies, for the hardest victory is over self.'}
+    {title3: 'I count him braver who overcomes his desires than him who conquers his enemies, for the hardest victory is over self. ~Aristole'}
   ]
 }
 
 function getQuoteing(){
   return[
-    {Authors:'René Descartes'}
+    {Authors:'René Descartes'},
+    {Authors: 'Jhon locke'},
+    {Authors: 'Aristotle'}
   ]
 }
 

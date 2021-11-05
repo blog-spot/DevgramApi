@@ -100,7 +100,7 @@ app.use("/graphql" ,graphqlHTTP({
     Quotes3: getQuotes3(),
     getAuthors: getQuoteing(),
   },
-  graphiql: true
+  graphiql: false
 
 })
 );

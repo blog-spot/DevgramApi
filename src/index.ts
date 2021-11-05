@@ -4,10 +4,11 @@ import * as fs from 'fs';
 var { graphqlHTTP } = require('express-graphql');
 var { buildSchema } = require('graphql');
 var bodyparser = require('body-parser');
-const axios = require('axios').default;
+import { request } from "graphql-request";
 const app:Application = express();
 const PORT = process.env.PORT || 3000;
 
+const GRAPHQL_URL = 'http://localhost:3000/';
 
 
 
@@ -19,6 +20,8 @@ app.use(express.json());
 
 app.get("/", (req:Request, res:Response):void => {
     res.send("Hello Typescript with Node.js!")
+    
+
   });
 
 

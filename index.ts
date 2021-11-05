@@ -4,7 +4,6 @@ import * as fs from 'fs';
 var bodyParser = require('body-parser');
 const app:Application = express();
 const PORT = process.env.PORT || 3000;
-const url = 'http://localhost:3000/api/v1/mainQuotes'
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());

@@ -22,7 +22,9 @@ app.get("/", (req:Request, res:Response):void => {
     type mainQuery {
       Quotes: [String!]
       Author: [String!]!     
-      nameQuote1: [Authornames!]
+      Quotes1: [Authornames!]
+      Quotes2: [quoting2!]
+      Quotes3: [quoting3!]
   
     }
 
@@ -33,6 +35,13 @@ app.get("/", (req:Request, res:Response):void => {
       title1: String
       source1: String
  }
+    type quoting2 {
+      title2: String
+    }
+
+    type quoting3 {
+      title3 : String
+    }
 
 
 
@@ -66,7 +75,9 @@ app.use("/graphql" ,graphqlHTTP({
     mainQuery:( getsource(), getQuote()),
     Author: getsource(),
     Quotes: getQuote(),
-    nameQuote1: getname(),
+    Quotes1: getname(),
+    Quotes2: getQuotes2(),
+    Quotes3: getQuotes3()
   },
   graphiql: true
 
@@ -125,3 +136,15 @@ function getname(){
 }
 
 
+function getQuotes2(){
+  return[
+    {title2:'Parents wonder why the streams are bitter, when they themselves poison the fountain'},
+
+  ]
+}
+
+function getQuotes3(){
+  return[
+    {title3: 'I count him braver who overcomes his desires than him who conquers his enemies, for the hardest victory is over self.'}
+  ]
+}

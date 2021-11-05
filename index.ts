@@ -44,6 +44,6 @@ app.get("/api/v1/mainQuotes", (req:Request , res: Response):void => {
 
 // setting up ports
 // void is used here as thr is no type for the port to listen to.
-  app.listen(process.env.PORT || 3000, ():void => {
+  app.listen(3000, ():void => {
     console.log(`Server Running here ⚡  https://localhost:${PORT}`);
   })

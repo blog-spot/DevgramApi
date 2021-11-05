@@ -6,17 +6,23 @@ var { buildSchema } = require('graphql');
 var bodyparser = require('body-parser');
 const app:Application = express();
 const PORT = process.env.PORT || 3000;
-
+import { request } from 'graphql-request';
 
 
 app.use(express.json());
 
 // main routes
-
-
+const query = `
+  query{
+    Quotes
+  }
+`
+request('http://localhost:3000/graphql' , query)
+.then(console.log)
+.catch(console.error)
 
 app.get("/", (req:Request, res:Response):void => {
-    res.send("Hello Typescript with Node.js!")
+    res.send("Hello Typescript with Node.js! __ api :)")
     
 
   });

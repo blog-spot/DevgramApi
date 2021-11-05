@@ -14,19 +14,14 @@ const PORT = process.env.PORT || 3000;
 app.use(express.json());
 
 // main routes
+
+
+
 app.get("/", (req:Request, res:Response):void => {
     res.send("Hello Typescript with Node.js!")
   });
 
-app.get('/test' , (req:Request, res:Response)  => {
-  axios.get('hrrps://github.com/')
-  .then(function (response:Response) {
-    console.log(response);
-  });
 
-
-
-});
   function defineSchema(){
     var schema = buildSchema(`
     type mainQuery {

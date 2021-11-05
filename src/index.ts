@@ -22,7 +22,7 @@ app.get("/", (req:Request, res:Response):void => {
     type mainQuery {
       Quote: [String!]
       Author: [String!]!     
-      name: [Authornames!]
+      nameQuote: [Authornames!]
   
     }
 
@@ -30,7 +30,7 @@ app.get("/", (req:Request, res:Response):void => {
 
     
     type Authornames{
-      title: String
+      title1: String,
 
 
  }
@@ -64,7 +64,7 @@ app.use("/graphql" ,graphqlHTTP({
     mainQuery:( getsource(), getQuote()),
     Author: getsource(),
     Quote: getQuote(),
-    NameQuote: getname(),
+    nameQuote: getname(),
   },
   graphiql: true
 
@@ -117,6 +117,6 @@ function getsource(){
 
 function getname(){
   return[
-    {title: 'test.'}
+   {title1: 'Except our own thoughts, there is nothing absolutely in our power'},   
   ]
 }

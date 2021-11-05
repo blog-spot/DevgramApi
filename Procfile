@@ -1,1 +1,1 @@
-web: ts-node-dev --respawn ./index.ts
+web: ts-node ./index.ts

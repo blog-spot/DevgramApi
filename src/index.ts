@@ -15,14 +15,18 @@ app.use(express.json());
 const query = `
   query{
     Quotes
+
+    Quotes1{
+      title1
+    }
   }
 `
-request('http://localhost:3000/graphql' , query)
-.then(console.log)
+const quotes = request('http://localhost:3000/graphql' , query)
 .catch(console.error)
 
-app.get("/", (req:Request, res:Response):void => {
+app.get ("/", async (req:Request, res:Response) => {
     res.send("Hello Typescript with Node.js! __ api :)")
+    res.send(await quotes)
     
 
   });
@@ -43,7 +47,7 @@ app.get("/", (req:Request, res:Response):void => {
 
     type getQuotesAuthor{
       Authors: String,
-\
+
     }
 
     type getSource{

@@ -1,1 +1,1 @@
-web: ts-node-dev --respawn ./app.ts
+web: node ./dist/app.js

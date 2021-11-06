@@ -3,7 +3,6 @@ exports.__esModule = true;
 // setting up express
 var express_1 = require("express");
 var fs = require("fs");
-var bodyparser = require('body-parser');
 var bodyParser = require('body-parser');
 var app = (0, express_1["default"])();
 var PORT = process.env.PORT || 3000;

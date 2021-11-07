@@ -1,0 +1,16 @@
+{
+	"folders": [
+		{
+			"path": "..\\blogs-webapp"
+		},
+		{
+			"path": "."
+		},
+		{
+			"path": "..\\learning-ts"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "learning-ts"
+	}
+}

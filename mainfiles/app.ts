@@ -28,9 +28,17 @@ app.get("/headers" , (req: Request, res: Response):void => {
         if(err){
             throw err
         }
-        res.send(JSON.parse(data))
+
+         res.send(JSON.parse(data))
     })
 })
+
+const test = fs.readFile('./views/headers.json', 'utf-8' , (err,data)=> {
+    if(err){
+        throw err
+    }
+})
+
 
   app.listen(PORT, ():void => {
     console.log(`Server Running here ⚡  https://localhost:${PORT}`);

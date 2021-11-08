@@ -11,11 +11,7 @@ app.use(bodyParser.json());
 app.use(express.json());
 
 
-app.get ("/",  (req:Request, res:Response) => {
-    res.send("Hello Typescript with Node.js! __ api :)")
-});
-
-app.get("/api", (req:Request , res: Response):void => {
+app.get("/", (req:Request , res: Response):void => {
     fs.readFile('./views/test.json' , 'utf-8' , (err,data)=> {
         if(err){
             throw err
@@ -26,6 +22,15 @@ app.get("/api", (req:Request , res: Response):void => {
 
 })
 
+
+app.get("/headers" , (req: Request, res: Response):void => {
+    fs.readFile('./views/headers.json' , 'utf-8' , (err,data)=> {
+        if(err){
+            throw err
+        }
+        res.send(JSON.parse(data))
+    })
+})
 
   app.listen(PORT, ():void => {
     console.log(`Server Running here ⚡  https://localhost:${PORT}`);

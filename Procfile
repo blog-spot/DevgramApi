@@ -1,1 +1,1 @@
-web:ts-node./app.ts
+web:ts-node/mainfiles/app.ts

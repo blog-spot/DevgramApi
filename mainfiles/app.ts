@@ -10,7 +10,6 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(express.json());
 
-
 app.get("/", (req:Request , res: Response):void => {
     fs.readFile('./views/test.json' , 'utf-8' , (err,data)=> {
         if(err){

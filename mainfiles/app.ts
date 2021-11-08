@@ -1,23 +1,32 @@
-import express from 'express';
-const app = express()
-const PORT : string|number = process.env.PORT || 3000;
-const  bodyParser = require('body-parser');
+// setting up express
+import express, {Request,Response,Application} from 'express';
+import * as fs from 'fs';
+var bodyParser = require('body-parser');
+const app:Application = express();
+const PORT = process.env.PORT || 3000;
+
+
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(express.json());
-import * as fs from 'fs';
 
 
-app.use("/",(req, res) =>{
-    res.send("<h1>Welcome to your simple server! Awesome right</h1>");
+app.get ("/",  (req:Request, res:Response) => {
+    res.send("Hello Typescript with Node.js! __ api :)")
 });
 
-app.get('/api' , (req,res) => {
-    fs.readFile('./src/test.json' , 'utf8' , (err , data ) => {
+app.get("/api", (req:Request , res: Response):void => {
+    fs.readFile('./views/test.json' , 'utf-8' , (err,data)=> {
         if(err){
-          throw err;
+            throw err
         }
-        res.send(JSON.parse(data));
-      })
+        res.send(JSON.parse(data))
+
+    })
+
 })
-app.listen(PORT,() => console.log(`hosting @${PORT}`));
+
+
+  app.listen(PORT, ():void => {
+    console.log(`Server Running here ⚡  https://localhost:${PORT}`);
+  });

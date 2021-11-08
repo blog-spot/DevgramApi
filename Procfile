@@ -1,1 +1,1 @@
-web: npm run dev
+web:ts-node./app.ts

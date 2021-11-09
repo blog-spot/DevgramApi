@@ -66,6 +66,8 @@ app.get('/quotes', (req: Request, res: Response) => {
   }
 
   quotesFetch();
+// testing api deatiles
+
 
 
   app.listen(PORT, ():void => {

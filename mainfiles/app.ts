@@ -10,6 +10,9 @@ const axios = require('axios');
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(express.json());
+// ejs setup
+app.set('view engine', 'ejs');
+
 
 app.get("/", (req:Request , res: Response):void => {
     fs.readFile('./views/test.json' , 'utf-8' , (err,data)=> {
@@ -68,7 +71,10 @@ app.get('/quotes', (req: Request, res: Response) => {
   quotesFetch();
 // testing api deatiles
 
+app.get('/testing' ,(req: Request, res: Response):void => {
+    res.render('hello/hello')
 
+})
 
   app.listen(PORT, ():void => {
     console.log(`Server Running here ⚡  https://localhost:${PORT}`);

@@ -1,0 +1,26 @@
+[
+    {
+      "source": "René Descartes",
+      "philosophy": "Rationalism",
+      "quote": "Except our own thoughts, there is nothing absolutely in our power.",
+      "_id": "0lyE9hLpz9QbCDgs"
+    },
+    {
+      "source1": "John Locke",
+      "philosophy": "Empiricism",
+      "quote": "Parents wonder why the streams are bitter, when they themselves poison the fountain.",
+      "_id": "1LfR2OY1slQ188PV"
+    },
+    {
+      "source2": "Aristotle",
+      "philosophy": "Classical Greek",
+      "quote": "I count him braver who overcomes his desires than him who conquers his enemies, for the hardest victory is over self.",
+      "_id": "1gc0pf9htdJi4tfw"
+    },
+    {
+      "source3": "Alan Watts",
+      "philosophy": "Mysticism",
+      "quote": "The more a thing tends to be permanent, the more it tends to be lifeless.",
+      "_id": "1lvvyDN8SXqFDAJC"
+    }
+]

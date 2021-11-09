@@ -10,3 +10,5 @@ Bulit with Typescript
 
 ## About this Api
 This api proveids the Quotes for the dashboard page You can refer to the Flow chart for the working of the api and the main page
+
+###  Usage about this Api

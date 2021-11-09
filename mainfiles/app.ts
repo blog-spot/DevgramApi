@@ -33,13 +33,9 @@ app.get("/headers" , (req: Request, res: Response):void => {
     })
 })
 
-app.get('/quotes' , (req: Request, res: Response):void => {
-    fs.readFile('./views/topfive.json', 'utf-8' ,(err,data)=> {
-        if(err){
-            throw err
-        }
-        res.send(JSON.parse(data))
-    })
+app.get('/quotes', (req: Request, res: Response) => {
+    const data = fs.readFileSync('./views/topfive.json').toString();
+    return res.json(JSON.parse(data))  
 })
 
 // test pull test from api server
@@ -63,13 +59,15 @@ app.get('/quotes' , (req: Request, res: Response):void => {
       try{
           const URL ="https://devgramapi.herokuapp.com/quotes"
           const response = await axios.get(URL);
-          console.log(response);
+          console.log(response.data.source1);
       }catch(error){
           console.log(error);
       }
   }
 
-  
+  quotesFetch();
+
+
   app.listen(PORT, ():void => {
     console.log(`Server Running here ⚡  https://localhost:${PORT}`);
   });

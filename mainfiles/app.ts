@@ -59,7 +59,7 @@ app.get('/quotes', (req: Request, res: Response) => {
       try{
           const URL ="https://devgramapi.herokuapp.com/quotes"
           const response = await axios.get(URL);
-          console.log(response.data.source1);
+          console.log(response.data[2].source2);
       }catch(error){
           console.log(error);
       }

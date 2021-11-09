@@ -58,23 +58,31 @@ app.get('/quotes', (req: Request, res: Response) => {
 //   }
 //   httpRequest();
 
-  async function quotesFetch(){
-      try{
-          const URL ="https://devgramapi.herokuapp.com/quotes"
-          const response = await axios.get(URL);
-          console.log(response.data[2].source2);
-      }catch(error){
-          console.log(error);
-      }
-  }
+//   async function quotesFetch(){
+//       try{
+//           const URL ="https://devgramapi.herokuapp.com/quotes"
+//           const response = await axios.get(URL);
+//           console.log(response.data[2].source2);
+//       }catch(error){
+//           console.log(error);
+//       }
+//   }
 
-  quotesFetch();
+//   quotesFetch();
 // testing api deatiles
 
-app.get('/testing' ,(req: Request, res: Response):void => {
-    res.render('hello/hello')
+app.get('/testing' , async (req: Request, res: Response) => {
+    axios.get("https://devgramapi.herokuapp.com/quotes")
+    .then(function (response:any){
+        const quotes = response.data[1].source1
+        console.log(quotes)
 
+        res.render('hello/hello' , {
+            quotes: quotes,
+        })
+    })      
 })
+
 
   app.listen(PORT, ():void => {
     console.log(`Server Running here ⚡  https://localhost:${PORT}`);

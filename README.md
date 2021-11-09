@@ -1,4 +1,4 @@
-Welcome to the official devgram api
+## Welcome to the official devgram api
 
 ![SemVer - API Version](https://img.shields.io/badge/version-1.0.0--beta-ff69b4)
 ![LOC](https://img.shields.io/tokei/lines/github/blog-spot/DevgramApi?color=white&label=lines%20of%20code)
@@ -7,3 +7,6 @@ Welcome to the official devgram api
 
 
 Bulit with Typescript
+
+## About this Api
+This api proveids the Quotes for the dashboard page You can refer to the Flow chart for the working of the api and the main page

@@ -4,7 +4,7 @@ import * as fs from 'fs';
 var bodyParser = require('body-parser');
 const app:Application = express();
 const PORT = process.env.PORT || 3000;
-const axios = require('axios').default;
+const axios = require('axios');
 
 
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -33,7 +33,20 @@ app.get("/headers" , (req: Request, res: Response):void => {
     })
 })
 
+// test pull test from api server
 
+async function httpRequest(){
+    try {
+      const URL = "https://devgramapi.herokuapp.com/"
+      const response = await axios.get(URL);
+      console.log(response);
+      const quotes = response.data.Github
+      console.log(quotes);
+    } catch (error) {
+      console.error(error);
+    }
+  }
+  httpRequest();
 
   app.listen(PORT, ():void => {
     console.log(`Server Running here ⚡  https://localhost:${PORT}`);

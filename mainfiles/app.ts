@@ -4,6 +4,7 @@ import * as fs from 'fs';
 var bodyParser = require('body-parser');
 const app:Application = express();
 const PORT = process.env.PORT || 3000;
+const axios = require('axios').default;
 
 
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -32,11 +33,6 @@ app.get("/headers" , (req: Request, res: Response):void => {
     })
 })
 
-const test = fs.readFile('./views/headers.json', 'utf-8' , (err,data)=> {
-    if(err){
-        throw err
-    }
-})
 
 
   app.listen(PORT, ():void => {

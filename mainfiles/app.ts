@@ -26,20 +26,26 @@ app.get("/", (req:Request , res: Response):void => {
 })
 
 
-app.get("/headers" , (req: Request, res: Response):void => {
-    fs.readFile('./views/headers.json' , 'utf-8' , (err,data)=> {
-        if(err){
-            throw err
-        }
-
-         res.send(JSON.parse(data))
-    })
+app.get("/headers" , (req: Request, res: Response) => {
+    const data = fs.readFileSync('./views/headers.json').toString();
+    return res.json(JSON.parse(data))
 })
+
 
 app.get('/quotes', (req: Request, res: Response) => {
     const data = fs.readFileSync('./views/topfive.json').toString();
     return res.json(JSON.parse(data))  
 })
+
+app.get('/mainpage' , (req: Request, res: Response) => {
+    const data = fs.readFileSync('./views/web/mainpage.json').toString();
+    return res.json(JSON.parse(data))
+
+})
+
+
+
+// TEST PULLING CODE BLOCKS WORKING GG OWO
 
 // test pull test from api server
 
@@ -71,17 +77,17 @@ app.get('/quotes', (req: Request, res: Response) => {
 //   quotesFetch();
 // testing api deatiles
 
-app.get('/testing' , async (req: Request, res: Response) => {
-    axios.get("https://devgramapi.herokuapp.com/quotes")
-    .then(function (response:any){
-        const quotes = response.data[1].quote
-        console.log(quotes)
+// app.get('/testing' , async (req: Request, res: Response) => {
+//     axios.get("https://devgramapi.herokuapp.com/quotes")
+//     .then(function (response:any){
+//         const quotes = response.data[1].quote
+//         console.log(quotes)
 
-        res.render('hello/hello' , {
-            quotes: quotes,
-        })
-    })      
-})
+//         res.render('hello/hello' , {
+//             quotes: quotes,
+//         })
+//     })      
+// })
 
 
   app.listen(PORT, ():void => {

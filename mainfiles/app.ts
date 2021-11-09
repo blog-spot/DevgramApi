@@ -74,7 +74,7 @@ app.get('/quotes', (req: Request, res: Response) => {
 app.get('/testing' , async (req: Request, res: Response) => {
     axios.get("https://devgramapi.herokuapp.com/quotes")
     .then(function (response:any){
-        const quotes = response.data[1].source1
+        const quotes = response.data[1].quote
         console.log(quotes)
 
         res.render('hello/hello' , {
